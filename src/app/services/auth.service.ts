@@ -1,16 +1,20 @@
 import { Injectable } from '@angular/core';
-import { from, map, Observable, tap } from 'rxjs';
+import { from, map, Observable, Subscription, tap } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Store } from '@ngrx/store';
 
 import { AuthUser } from '../models/authUser.model';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { User } from '../models/user.model';
+import * as authActions from '../store/auth/auth.actions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(public auth: AngularFireAuth, public firestore: AngularFirestore) {}
+  private subs$ = new Subscription();
+
+  constructor(private auth: AngularFireAuth, private firestore: AngularFirestore, private store$: Store) {}
 
   createUser(authUser: AuthUser): Observable<any> {
     return from(this.auth.createUserWithEmailAndPassword(authUser.email, authUser.password)).pipe(
@@ -24,7 +28,21 @@ export class AuthService {
   }
 
   initAuthListener(): void {
-    this.auth.authState.subscribe((user) => console.log(user));
+    this.auth.authState.subscribe((authUser) => {
+      if (authUser) {
+        this.subs$ = this.firestore
+          .doc<User>(`${authUser.uid}/usuario`)
+          .valueChanges()
+          .subscribe((fsUser) => {
+            if (fsUser) {
+              this.store$.dispatch(authActions.setUser({ user: fsUser }));
+            }
+          });
+      } else {
+        this.subs$.unsubscribe();
+        this.store$.dispatch(authActions.removeUser());
+      }
+    });
   }
 
   isAuthenticated(): Observable<boolean> {

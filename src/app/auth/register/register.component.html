@@ -37,8 +37,12 @@
               </div>
             </div>
             <div class="form-group">
-              <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary submit-btn btn-block">Crear
+              <button [disabled]="registerForm.invalid" type="submit" *ngIf="!isLoading; else loading" class="btn btn-primary submit-btn btn-block">Crear
                 cuenta</button>
+              <ng-template #loading>
+                <button disabled type="button" class="btn btn-primary submit-btn btn-block"><i
+                    class="fa fa-spinner fa-spin"></i>Espere</button>
+              </ng-template>
             </div>
             <div class="text-block text-center my-3">
               <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
