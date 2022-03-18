@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from 'src/app/services/auth.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    UtilsService.showSpinner();
+    this.authService.logoutUser().subscribe({
+      next: () => {
+        UtilsService.closeSpinner();
+        this.router.navigate(['/login']);
+      },
+      error: (error) =>
+        UtilsService.toast('error').fire({
+          title: UtilsService.getErrorByCode(error.code),
+        }),
+    });
   }
 
 }

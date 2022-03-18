@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+input.form-control::placeholder {
+  opacity: 0.5;
+}
+
+body.swal2-toast-shown .swal2-container.swal2-top {
+  width: 100%;
+  max-width: 768px;
+}
+
+.cursor {
+  cursor: pointer;
+}

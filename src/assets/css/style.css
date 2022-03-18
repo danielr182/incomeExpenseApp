@@ -8308,10 +8308,10 @@ pre {
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+    box-shadow: none !important; }
   .form-control::placeholder {
     color: #c9c8c8;
-    opacity: 1; }
+    opacity: 0.5; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
     opacity: 1; }
@@ -14955,7 +14955,7 @@ ul {
         border-radius: 0 6px 6px 0;
         border-left: none;
         border-color: #e5e5e5;
-        color: #b6b6b6; }
+        color: yellowgreen; }
   .auth.theme-one .auto-form-wrapper .form-group .submit-btn {
     font-family: "Poppins", sans-serif;
     font-size: 13px;
