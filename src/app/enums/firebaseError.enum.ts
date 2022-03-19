@@ -1,4 +1,4 @@
-export enum FirebaseErrors {
+export enum FirebaseError {
   'auth/email-already-exists' = 'Otro usuario ya está utilizando el correo electrónico proporcionado',
   'auth/email-already-in-use' = 'Otro usuario ya está utilizando el correo electrónico proporcionado',
   'auth/invalid-email' = 'El valor que proporcionó para el correo electrónico no es válido',

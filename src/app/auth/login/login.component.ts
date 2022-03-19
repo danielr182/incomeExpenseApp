@@ -1,13 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { finalize, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
-import { AuthService } from 'src/app/services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { uiSelectors } from 'src/app/store/ui.selector';
-import * as uiActions from 'src/app/store/ui.actions';
+import { uiSelectors } from 'src/app/store/ui/ui.selector';
+import * as authActions from 'src/app/store/auth/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +19,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router,
     private store$: Store
   ) {}
 
@@ -44,22 +40,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.loginForm.invalid) {
       return;
     }
-
-    this.store$.dispatch(uiActions.isLoading());
-    this.subs$.add(
-      this.authService
-        .loginUser(this.loginForm.value)
-        .pipe(finalize(() => this.store$.dispatch(uiActions.stopLoading())))
-        .subscribe({
-          next: () => {
-            this.router.navigate(['/']);
-          },
-          error: (error) =>
-            UtilsService.toast('error').fire({
-              title: UtilsService.getErrorByCode(error.code),
-            }),
-        })
-    );
+    this.store$.dispatch(authActions.loginUser({ authUser: this.loginForm.value }));
   }
 
   isControlValid(controlName: string): boolean {

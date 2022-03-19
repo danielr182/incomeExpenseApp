@@ -12960,8 +12960,7 @@ address p {
   font-weight: 500;
   color: #404852;
   margin-bottom: 22px;
-  font-size: 14px;
-  text-transform: capitalize; }
+  font-size: 14px; }
   .rtl .card-title {
     text-align: right; }
 

@@ -1,13 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { finalize, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 
-import { AuthService } from '../../services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { uiSelectors } from 'src/app/store/ui.selector';
-import * as uiActions from 'src/app/store/ui.actions';
+import { uiSelectors } from 'src/app/store/ui/ui.selector';
+import * as authActions from 'src/app/store/auth/auth.actions';
 
 @Component({
   selector: 'app-register',
@@ -21,8 +19,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router,
     private store$: Store
   ) {}
 
@@ -45,22 +41,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     if (this.registerForm.invalid) {
       return;
     }
-
-    this.store$.dispatch(uiActions.isLoading());
-    this.subs$.add(
-      this.authService
-        .createUser(this.registerForm.value)
-        .pipe(finalize(() => this.store$.dispatch(uiActions.stopLoading())))
-        .subscribe({
-          next: () => {
-            this.router.navigate(['/']);
-          },
-          error: (error) =>
-            UtilsService.toast('error').fire({
-              title: UtilsService.getErrorByCode(error.code),
-            }),
-        })
-    );
+    this.store$.dispatch(authActions.registerUser({ authUser: this.registerForm.value }));
   }
 
   isControlValid(controlName: string): boolean {

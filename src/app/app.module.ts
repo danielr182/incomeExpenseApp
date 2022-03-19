@@ -4,7 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
 // Store
-import { appReducers } from './app.reducer';
+import { AppEffects } from './store/app.effects';
+import { AppReducers } from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 
@@ -43,7 +45,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     AppRoutingModule,
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(appReducers),
+    StoreModule.forRoot(AppReducers),
+    EffectsModule.forRoot(AppEffects),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode

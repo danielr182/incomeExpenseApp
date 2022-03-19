@@ -1,9 +1,9 @@
 import { FormGroup } from '@angular/forms';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 
-import { FirebaseErrors } from '../enums/firebaseErrors.enum';
+import { FirebaseError } from '../enums/firebaseError.enum';
 
-export class UtilsService {
+export abstract class UtilsService {
   constructor() {}
 
   static isControlValid(form: FormGroup, controlName: string): boolean {
@@ -11,8 +11,8 @@ export class UtilsService {
   }
 
   static getErrorByCode(errorCode: string): string {
-    let errorText = FirebaseErrors.generic;
-    Object.entries(FirebaseErrors).map(([key, value]) => {
+    let errorText = FirebaseError.generic;
+    Object.entries(FirebaseError).map(([key, value]) => {
       if (key === errorCode) {
         errorText = value;
       }
