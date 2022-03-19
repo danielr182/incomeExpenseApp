@@ -33,18 +33,15 @@
           </div>
 
           <hr>
-          <button type="submit" class="btn btn-success mr-2" [disabled]="incomeExpenseForm.invalid">
+          <button type="submit" class="btn btn-success mr-2" *ngIf="!isLoading; else loading"
+            [disabled]="incomeExpenseForm.invalid">
             Agregar
           </button>
-
-          <!-- 
-                <button disabled class="btn btn-success mr-2">
-                  <i class="fa fa-spin fa-sync"></i>
-                  Espere por favor...
-                </button> 
-              -->
-
-          <button type="reset" class="btn btn-light">Cancelar</button>
+          <ng-template #loading>
+            <button disabled type="button" class="btn btn-success mr-2"><i
+                class="fa fa-spinner fa-spin"></i>Espere</button>
+          </ng-template>
+          <button type="reset" class="btn btn-light" routerLink="['/']">Cancelar</button>
 
         </form>
       </div>

@@ -6,6 +6,13 @@ import { FirebaseError } from '../enums/firebaseError.enum';
 export abstract class UtilsService {
   constructor() {}
 
+  static capitalize(value: string): string {
+    if (!value) {
+      return '';
+    }
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  }
+
   static isControlValid(form: FormGroup, controlName: string): boolean {
     return form.get(controlName)?.valid ?? false;
   }
@@ -29,8 +36,8 @@ export abstract class UtilsService {
       allowOutsideClick: false,
       background: 'transparent',
       didOpen: () => {
-        Swal.showLoading()
-      }
+        Swal.showLoading();
+      },
     });
   }
 
