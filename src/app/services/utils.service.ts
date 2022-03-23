@@ -1,5 +1,6 @@
 import { FormGroup } from '@angular/forms';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
+import { incomeExpenseConst } from '../constants/incomeExpenseConstants';
 
 import { FirebaseError } from '../enums/firebaseError.enum';
 
@@ -25,6 +26,10 @@ export abstract class UtilsService {
       }
     });
     return errorText;
+  }
+
+  static getTypeByCode(typeCode: string): string {
+    return incomeExpenseConst.type[typeCode];
   }
 
   static closeSpinner(): void {

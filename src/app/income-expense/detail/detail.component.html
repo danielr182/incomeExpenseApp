@@ -15,11 +15,13 @@
               </thead>
 
               <tbody>
-                <tr>
-                  <td>Descripción</td>
-                  <td>Monto</td>
-                  <td>Tipo</td>
-                  <td>acciones</td>
+                <tr *ngFor="let item of incomeExpenseList | incomeExpenseSort">
+                  <td> {{ item.description }} </td>
+                  <td> {{ item.amount | currency }} </td>
+                  <td [className]="getClassName(item.type)"> {{ getTypeByCode(item.type) }} </td>
+                  <td>
+                    <button type="button" class="btn btn-danger" (click)="deleteItem(item)"><i class="fa fa-trash mr-0"></i></button>
+                  </td>
                 </tr>
               </tbody>
 

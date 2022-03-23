@@ -12,6 +12,6 @@ export const initialState: State = {
 
 export const authReducer = createReducer(
   initialState,
-  on(authActions.setUser, (state, { user }) => ({ ...state, user: { ...user },  })),
+  on(authActions.setUser, (state, { user }) => ({ ...state, user: { ...user } })),
   on(authActions.removeUser, (state) => ({ ...state, user: null }))
 );

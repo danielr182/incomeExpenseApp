@@ -25,6 +25,7 @@ import { DetailComponent } from './income-expense/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { IncomeExpenseSortPipe } from './pipes/income-expense-sort.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
+    IncomeExpenseSortPipe,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),

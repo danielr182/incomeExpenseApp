@@ -22,7 +22,7 @@ export class AuthService {
         const uid = user?.uid ?? '';
         const name = authUser?.name ?? '';
         const newUser = new User(uid, name, authUser.email);
-        this.firestore.doc(`${uid}/usuario`).set({ ...newUser });
+        this.firestore.doc(`${uid}/user`).set({ ...newUser });
       })
     );
   }
@@ -31,7 +31,7 @@ export class AuthService {
     this.auth.authState.subscribe((authUser) => {
       if (authUser) {
         this.subs$ = this.firestore
-          .doc<User>(`${authUser.uid}/usuario`)
+          .doc<User>(`${authUser.uid}/user`)
           .valueChanges()
           .subscribe((fsUser) => {
             if (fsUser) {

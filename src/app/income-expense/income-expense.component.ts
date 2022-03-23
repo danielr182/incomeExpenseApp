@@ -38,7 +38,6 @@ export class IncomeExpenseComponent implements OnInit, OnDestroy {
   }
 
   addIncomeExpense(): void {
-    console.log(this.incomeExpenseForm.value);
     const incomeExpense = this.incomeExpenseForm.value as IncomeExpense;
     this.store$.dispatch(incomeExpenseActions.addIncomeExpense({ incomeExpense }));
   }

@@ -1,4 +1,13 @@
-<div class="row">
+<ng-template #loading>
+    <div class="d-flex justify-content-center align-items-center h-100 text-primary">
+        <div class="d-flex" style="width: 3rem; height: 3rem;">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<div class="row" *ngIf="!isLoading; else loading">
     <div class="col-6">
         <div class="card card-statistics">
             <div class="card-body">
@@ -10,12 +19,12 @@
                     <div class="float-right">
                         <p class="mb-0 text-right">Ingresos</p>
                         <div class="fluid-container">
-                            <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
+                            <h3 class="font-weight-medium text-right mb-0">{{ incomeTotal | currency }}</h3>
                         </div>
                     </div>
                 </div>
                 <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ incomeCount }} Items
                 </p>
             </div>
         </div>
@@ -30,14 +39,14 @@
                         <i class="fa fa-shipping-fast text-danger icon-lg"></i>
                     </div>
                     <div class="float-right">
-                        <p class="mb-0 text-right">Ingresos</p>
+                        <p class="mb-0 text-right">Egresos</p>
                         <div class="fluid-container">
-                            <h3 class="font-weight-medium text-right mb-0">$65,650</h3>
+                            <h3 class="font-weight-medium text-right mb-0">{{ expenseTotal | currency }}</h3>
                         </div>
                     </div>
                 </div>
                 <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 65% lower growth
+                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ expenseCount }} Items
                 </p>
             </div>
         </div>
