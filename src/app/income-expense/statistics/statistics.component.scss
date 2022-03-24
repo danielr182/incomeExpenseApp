@@ -1,0 +1,14 @@
+.card-statistics-chart .card-body {
+  display: flex;
+  flex-direction: column;
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+
+    .chart-block {
+      display: block;
+      max-width: 500px;
+    }
+  }
+}

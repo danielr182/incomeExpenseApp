@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { finalize, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { ChartData } from 'chart.js';
 
 import { IncomeExpenseType } from 'src/app/enums/incomeExpenseType.enum';
 import { IncomeExpense } from 'src/app/models/incomeExpense.model';
@@ -20,6 +21,13 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   expenseCount: number = 0;
   incomeTotal: number = 0;
   expenseTotal: number = 0;
+
+  doughnutChartLabels: string[] = ['Ingresos', 'Egresos'];
+  doughnutChartData: ChartData<'doughnut'> = {
+    labels: this.doughnutChartLabels,
+    datasets: [{ data: [] }],
+  };
+
   private subs$ = new Subscription();
   private userLoaded: boolean = false;
 
@@ -57,6 +65,17 @@ export class StatisticsComponent implements OnInit, OnDestroy {
         this.expenseCount++;
       }
     });
+    this.doughnutChartData = {
+      labels: this.doughnutChartLabels,
+      datasets: [
+        {
+          backgroundColor: ['#82E0AA', '#F1948A'],
+          hoverBorderColor: ['#1ABC9C', '#EC7063'],
+          hoverBackgroundColor: ['#1ABC9C', '#EC7063'],
+          data: [this.incomeTotal, this.expenseTotal],
+        },
+      ],
+    };
   }
 
   private resetValues(): void {
@@ -64,5 +83,9 @@ export class StatisticsComponent implements OnInit, OnDestroy {
     this.expenseCount = 0;
     this.incomeTotal = 0;
     this.expenseTotal = 0;
+  }
+
+  getClassName(): string {
+    return this.incomeTotal - this.expenseTotal >= 0 ? 'text-success' : 'text-danger';
   }
 }

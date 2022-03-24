@@ -3,17 +3,21 @@
       <li class="nav-item nav-profile">
         <div class="nav-link">
           
-          <div class="user-wrapper">
+          <div class="user-wrapper d-flex w-100">
             <div class="profile-image">
-              <img src="assets/images/faces/face1.jpg" alt="profile image">
+              <img src="assets/images/faces-clipart/pic-1.png" alt="profile image">
             </div>
             
-            <div class="text-wrapper">
-              <p class="profile-name">Cristobal Colón</p>
-              <div>
-                <small class="designation text-muted">Gerente</small>
-              </div>
+            <div class="text-wrapper" *ngIf="!!name; else loading">
+              <div class="profile-name mb-0">{{ name }}</div>
             </div>
+            <ng-template #loading>
+              <div class="text-wrapper justify-content-center align-items-center">
+                <div class="spinner-border spinner-border-sm text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </ng-template>
           </div>
           
         </div>

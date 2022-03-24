@@ -1,0 +1,10 @@
+.text-wrapper {
+  white-space: normal;
+  display: flex;
+  flex: 1;
+
+  .profile-name {
+    display: flex;
+    align-items: center;
+  }
+}

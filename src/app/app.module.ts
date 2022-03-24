@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { NgChartsModule } from 'ng2-charts';
 
 // Store
 import { AppEffects } from './store/app.effects';
@@ -46,6 +47,7 @@ import { IncomeExpenseSortPipe } from './pipes/income-expense-sort.pipe';
     AngularFirestoreModule,
     AppRoutingModule,
     BrowserModule,
+    NgChartsModule,
     ReactiveFormsModule,
     StoreModule.forRoot(AppReducers),
     EffectsModule.forRoot(AppEffects),
