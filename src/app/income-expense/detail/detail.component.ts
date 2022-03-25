@@ -23,7 +23,7 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.subs$.add(
       this.store$
         .select(incomeExpenseSelectors.itemsIncomeExpenseSelector)
-        .subscribe((items) => (this.incomeExpenseList = [...items]))
+        .subscribe((items = []) => (this.incomeExpenseList = [...items]))
     );
   }
 

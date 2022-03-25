@@ -3,7 +3,7 @@ import { IncomeExpense } from 'src/app/models/incomeExpense.model';
 import * as incomeExpenseActions from './income-expense.actions';
 
 export interface State {
-  items: IncomeExpense[];
+  items?: IncomeExpense[];
 }
 
 export const initialState: State = {

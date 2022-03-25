@@ -54,7 +54,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
     this.subs$.unsubscribe();
   }
 
-  private generateStatistics(items: IncomeExpense[]): void {
+  private generateStatistics(items: IncomeExpense[] = []): void {
     this.resetValues();
     items.map((item) => {
       if (IncomeExpenseType.income === item.type) {
