@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ['', Validators.required],
     });
     this.subs$.add(
-      this.store$.pipe(select(uiSelectors.isLoadingSelector)).subscribe((isLoading) => (this.isLoading = isLoading))
+      this.store$.pipe(select(uiSelectors.isLoadingSelector)).subscribe((isLoading: boolean) => (this.isLoading = isLoading))
     );
   }
 
