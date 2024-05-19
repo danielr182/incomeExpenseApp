@@ -8110,7 +8110,7 @@ pre {
   .offset-xl-10 {
     margin-left: 83.33333%; }
   .offset-xl-11 {
-    margin-left: 91.66667%; } }
+    margin-left: 91.66667%; }
 
 .table {
   width: 100%;
@@ -8308,10 +8308,10 @@ pre {
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+    box-shadow: none !important; }
   .form-control::placeholder {
     color: #c9c8c8;
-    opacity: 1; }
+    opacity: 0.5; }
   .form-control:disabled, .form-control[readonly] {
     background-color: #e9ecef;
     opacity: 1; }
@@ -11504,7 +11504,7 @@ button.bg-dark:focus {
   .align-self-xl-baseline {
     align-self: baseline !important; }
   .align-self-xl-stretch {
-    align-self: stretch !important; } }
+    align-self: stretch !important; }
 
 .float-left {
   float: left !important; }
@@ -12048,7 +12048,7 @@ button.bg-dark:focus {
     margin-bottom: auto !important; }
   .ml-xl-auto,
   .mx-xl-auto {
-    margin-left: auto !important; } }
+    margin-left: auto !important; }
 
 .text-monospace {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
@@ -12605,8 +12605,8 @@ input:focus {
         display: flex;
         margin-bottom: 30px; }
         .sidebar .nav .nav-item.nav-profile .nav-link .user-wrapper .profile-image {
-          width: 40px;
-          height: 40px; }
+          width: 30px;
+          height: 30px; }
           .sidebar .nav .nav-item.nav-profile .nav-link .user-wrapper .profile-image img {
             border-radius: 100%;
             max-width: 100%; }
@@ -12827,7 +12827,7 @@ input:focus {
 :root,
 body {
   font-size: 1rem;
-  font-family: "Poppins", sans-serif; }
+  font-family: "Poppins", sans-serif !important; }
 
 .h1,
 .h2,
@@ -12960,8 +12960,7 @@ address p {
   font-weight: 500;
   color: #404852;
   margin-bottom: 22px;
-  font-size: 14px;
-  text-transform: capitalize; }
+  font-size: 14px; }
   .rtl .card-title {
     text-align: right; }
 
@@ -13076,7 +13075,6 @@ pre {
   font-size: calc(13px - 0.05rem);
   font-family: "Poppins", sans-serif; }
   .footer a {
-    color: #00ce68;
     font-size: inherit; }
   @media (max-width: 991px) {
     .footer {
@@ -14955,7 +14953,7 @@ ul {
         border-radius: 0 6px 6px 0;
         border-left: none;
         border-color: #e5e5e5;
-        color: #b6b6b6; }
+        color: yellowgreen; }
   .auth.theme-one .auto-form-wrapper .form-group .submit-btn {
     font-family: "Poppins", sans-serif;
     font-size: 13px;

@@ -1,45 +1,59 @@
-
-  <div class="page-body-wrapper full-page-wrapper auth-page">
-    <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
-      <div class="row w-100">
-        <div class="col-lg-4 mx-auto">
-          <h2 class="text-center mb-4">Registro</h2>
-          <div class="auto-form-wrapper">
-            <form action="#">
-              <div class="form-group">
-                <div class="input-group">
-                  <input type="email" class="form-control" placeholder="Correo">
-                  <div class="input-group-append">
-                    <span class="input-group-text">
-                      <i class="fa fa-check-circle"></i>
-                    </span>
-                  </div>
+<div class="page-body-wrapper full-page-wrapper auth-page">
+  <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
+    <div class="row w-100">
+      <div class="col-lg-4 mx-auto">
+        <h2 class="text-center text-secondary">Mony App</h2>
+        <p class="text-center text-secondary mb-4">Controla tu flujo de dinero</p>
+        <div class="auto-form-wrapper">
+          <form [formGroup]="registerForm" (ngSubmit)="createUser()">
+            <div class="form-group">
+              <div class="input-group">
+                <input type="text" formControlName="name" class="form-control" placeholder="Nombre">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i *ngIf="isControlValid('name')" class="fa fa-check-circle"></i>
+                  </span>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <input type="password" class="form-control" placeholder="Contraseña">
-                  <div class="input-group-append">
-                    <span class="input-group-text">
-                      <i class="fa fa-check-circle"></i>
-                    </span>
-                  </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="email" formControlName="email" class="form-control" placeholder="Correo">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i *ngIf="isControlValid('email')" class="fa fa-check-circle"></i>
+                  </span>
                 </div>
               </div>
-
-              <div class="form-group">
-                <button class="btn btn-primary submit-btn btn-block">Crear cuenta</button>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <input type="password" formControlName="password" class="form-control" placeholder="Contraseña">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i *ngIf="isControlValid('password')" class="fa fa-check-circle"></i>
+                  </span>
+                </div>
               </div>
-              <div class="text-block text-center my-3">
-                <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
-                <br>
-                <a routerLink="/login" class="text-black text-small">Ingresar</a>
-              </div>
-            </form>
-          </div>
+            </div>
+            <div class="form-group">
+              <button [disabled]="registerForm.invalid" type="submit" *ngIf="!isLoading; else loading" class="btn btn-primary submit-btn btn-block">Crear
+                cuenta</button>
+              <ng-template #loading>
+                <button disabled type="button" class="btn btn-primary submit-btn btn-block"><i
+                    class="fa fa-spinner fa-spin"></i>Espere</button>
+              </ng-template>
+            </div>
+            <div class="text-block text-center my-3">
+              <span class="text-small font-weight-semibold">ya tienes una cuenta?</span>
+              <br>
+              <a routerLink="/login" class="text-black text-small">Ingresar</a>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <!-- content-wrapper ends -->
   </div>
-  <!-- page-body-wrapper ends -->
+  <!-- content-wrapper ends -->
+</div>
+<!-- page-body-wrapper ends -->
