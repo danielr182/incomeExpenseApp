@@ -1,11 +1,11 @@
 {
   "rewrites": [
     {
-      "source": "/en-US/**",
+      "source": "/en-US/:match*",
       "destination": "/en-US/index.html"
     },
     {
-      "source": "/es/**",
+      "source": "/es/:match*",
       "destination": "/es/index.html"
     }
   ]
