@@ -1,8 +1,8 @@
 import { UntypedFormGroup } from '@angular/forms';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
-import { incomeExpenseConst } from '../constants/incomeExpenseConstants';
+import { incomeExpenseConst } from '../constants/incomeExpense.constant';
 
-import { FirebaseError } from '../enums/firebaseError.enum';
+import { firebaseError } from '../constants/firebaseError.constant';
 
 export abstract class UtilsService {
   constructor() {}
@@ -19,8 +19,8 @@ export abstract class UtilsService {
   }
 
   static getErrorByCode(errorCode: string): string {
-    let errorText = FirebaseError.generic;
-    Object.entries(FirebaseError).map(([key, value]) => {
+    let errorText = firebaseError['generic'];
+    Object.entries(firebaseError).map(([key, value]) => {
       if (key === errorCode) {
         errorText = value;
       }
