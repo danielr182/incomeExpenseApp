@@ -1,0 +1,18 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/en-US"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/en-US/(.)",
+      "destination": "/en/"
+    },
+    {
+      "source": "/es/(.)",
+      "destination": "/es/"
+    }
+  ]
+}
