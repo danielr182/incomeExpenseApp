@@ -2,46 +2,46 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Agregar un Ingreso ó Egreso</h4>
+        <h4 class="card-title">Add an Income or Expense</h4>
         <p class="card-description">
-          Especifique el tipo, la descripción y el monto
+          Specify type, description and amount
         </p>
 
         <form class="mt-4" [formGroup]="incomeExpenseForm" (ngSubmit)="addIncomeExpense()">
           <div class="form-group">
-            <label>Tipo</label>
+            <label>Type</label>
             <br>
             <input type="radio" class="btn-check" formControlName="type" [value]="incomeExpenseType.income"
               id="incomeExpenseType-income" name="type" autocomplete="off">
-            <label class="btn btn-outline-primary btn-lg mr-2" for="incomeExpenseType-income">Ingreso</label>
+            <label class="btn btn-outline-primary btn-lg mr-2" for="incomeExpenseType-income">Income</label>
             <input type="radio" class="btn-check" formControlName="type" [value]="incomeExpenseType.expense"
               id="incomeExpenseType-expense" name="type" autocomplete="off">
-            <label class="btn btn-outline-danger btn-lg" for="incomeExpenseType-expense">Egreso</label>
+            <label class="btn btn-outline-danger btn-lg" for="incomeExpenseType-expense">Expense</label>
           </div>
 
           <div class="form-group">
-            <label>Descripción</label>
-            <input type="text" class="form-control" formControlName="description" placeholder="Descripción">
+            <label>Description</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="Description">
           </div>
 
           <div class="form-group mb-5">
             <label>Monto</label>
-            <input type="text" class="form-control" formControlName="amount" placeholder="Monto">
+            <input type="text" class="form-control" formControlName="amount" placeholder="Amount">
             <p>
-              Debe de ser un monto positivo
+              It should be a positive amount
             </p>
           </div>
 
           <hr>
           <button type="submit" class="btn btn-success mr-2" *ngIf="!isLoading; else loading"
             [disabled]="incomeExpenseForm.invalid">
-            Agregar
+            Add
           </button>
           <ng-template #loading>
             <button disabled type="button" class="btn btn-success mr-2"><i
-                class="fa fa-spinner fa-spin"></i>Espere</button>
+                class="fa fa-spinner fa-spin"></i>Loading</button>
           </ng-template>
-          <button type="reset" class="btn btn-light" routerLink="['/']">Cancelar</button>
+          <button type="reset" class="btn btn-light" routerLink="['/']">Cancel</button>
 
         </form>
       </div>

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { IncomeExpenseType } from '../enums/incomeExpenseType.enum';
@@ -15,11 +15,11 @@ import { uiSelectors } from '../store/ui/ui.selector';
 })
 export class IncomeExpenseComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
-  incomeExpenseForm: FormGroup;
+  incomeExpenseForm: UntypedFormGroup;
   incomeExpenseType = IncomeExpenseType;
   private subs$ = new Subscription();
 
-  constructor(private clearFormService: ClearFormService, private fb: FormBuilder, private store$: Store) {}
+  constructor(private clearFormService: ClearFormService, private fb: UntypedFormBuilder, private store$: Store) {}
 
   ngOnInit(): void {
     this.incomeExpenseForm = this.fb.group({

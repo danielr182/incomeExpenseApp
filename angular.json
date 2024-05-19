@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "incomeExpenseApp:build:production"
+              "buildTarget": "incomeExpenseApp:build:production"
             },
             "development": {
-              "browserTarget": "incomeExpenseApp:build:development"
+              "buildTarget": "incomeExpenseApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "incomeExpenseApp:build"
+            "buildTarget": "incomeExpenseApp:build"
           }
         },
         "test": {
@@ -102,6 +102,5 @@
         }
       }
     }
-  },
-  "defaultProject": "incomeExpenseApp"
+  }
 }

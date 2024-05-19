@@ -3,12 +3,12 @@
     <div class="row w-100">
       <div class="col-lg-4 mx-auto">
         <h2 class="text-center text-white">Mony App</h2>
-        <p class="text-center text-light mb-4">Controla tu flujo de dinero</p>
+        <p class="text-center text-light mb-4">Control your money flow</p>
         <div class="auto-form-wrapper">
           <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
             <div class="form-group">
               <div class="input-group">
-                <input type="email" formControlName="email" class="form-control" placeholder="Correo">
+                <input type="email" formControlName="email" class="form-control" placeholder="Email">
                 <div class="input-group-append">
                   <span class="input-group-text">
                     <i *ngIf="isControlValid('email')" class="fa fa-check-circle"></i>
@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
               <div class="input-group">
-                <input type="password" formControlName="password" class="form-control" placeholder="Contraseña">
+                <input type="password" formControlName="password" class="form-control" placeholder="Password">
                 <div class="input-group-append">
                   <span class="input-group-text">
                     <i *ngIf="isControlValid('password')" class="fa fa-check-circle"></i>
@@ -28,17 +28,17 @@
             </div>
             <div class="form-group">
               <button [disabled]="loginForm.invalid" type="submit" *ngIf="!isLoading; else loading"
-                class="btn btn-primary submit-btn btn-block">Ingresar</button>
+                class="btn btn-primary submit-btn btn-block">Sign in</button>
               <ng-template #loading>
                 <button disabled type="button" class="btn btn-primary submit-btn btn-block"><i
-                    class="fa fa-spinner fa-spin"></i>Espere</button>
+                    class="fa fa-spinner fa-spin"></i>Loading</button>
               </ng-template>
             </div>
 
             <div class="text-block text-center my-3">
-              <span class="text-small font-weight-semibold">No estas registrado? </span>
+              <span class="text-small font-weight-semibold">Are you not registered? </span>
               <br>
-              <a routerLink="/register" class="text-black text-small">Crear una cuenta</a>
+              <a routerLink="/register" class="text-black text-small">Create account</a>
             </div>
           </form>
         </div>

@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
@@ -14,11 +14,11 @@ import * as authActions from 'src/app/store/auth/auth.actions';
 })
 export class LoginComponent implements OnInit, OnDestroy {
   isLoading: boolean = false;
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   private subs$ = new Subscription();
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private store$: Store
   ) {}
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: ['', Validators.required],
     });
     this.subs$.add(
-      this.store$.pipe(select(uiSelectors.isLoadingSelector)).subscribe((isLoading) => (this.isLoading = isLoading))
+      this.store$.pipe(select(uiSelectors.isLoadingSelector)).subscribe((isLoading: boolean) => (this.isLoading = isLoading))
     );
   }
 
