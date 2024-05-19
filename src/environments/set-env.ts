@@ -11,9 +11,9 @@ const setEnv = () => {
   const envConfigFile = `export const environment = {
     firebase: {
       apiKey: '${process.env['FIREBASE_API_KEY']}',
-      authDomain: 'income-expense-app-94e37.firebaseapp.com',
-      projectId: 'income-expense-app-94e37',
-      storageBucket: 'income-expense-app-94e37.appspot.com',
+      authDomain: '${process.env['PROJECT_ID']}.firebaseapp.com',
+      projectId: '${process.env['PROJECT_ID']}',
+      storageBucket: '${process.env['PROJECT_ID']}.appspot.com',
       messagingSenderId: '565387043619',
       appId: '1:565387043619:web:51605a471f9afc28df6296',
       measurementId: 'G-TKQEYXBY44',
@@ -21,8 +21,6 @@ const setEnv = () => {
     production: true,
   };
 `;
-  console.log('The file `environment.ts` will be written with the following content: \n');
-  console.log(envConfigFile);
   writeFile(targetPath, envConfigFile, (err: any) => {
     if (err) {
       console.error(err);
