@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { incomeExpenseConst } from '../constants/incomeExpenseConstants';
 
@@ -14,7 +14,7 @@ export abstract class UtilsService {
     return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
   }
 
-  static isControlValid(form: FormGroup, controlName: string): boolean {
+  static isControlValid(form: UntypedFormGroup, controlName: string): boolean {
     return form.get(controlName)?.valid ?? false;
   }
 
