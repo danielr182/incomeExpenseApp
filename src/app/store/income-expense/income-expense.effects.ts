@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, EffectNotification, ofType } from '@ngrx/effects';
 import { catchError, concat, exhaustMap, map, mergeMap, Observable, of, takeUntil, tap } from 'rxjs';
-import { incomeExpenseConst } from 'src/app/constants/incomeExpenseConstants';
+import { incomeExpenseConst } from 'src/app/constants/incomeExpense.constant';
 import { ClearFormService } from 'src/app/services/clear-form.service';
 import { IncomeExpenseService } from 'src/app/services/income-expense.service';
 import { UtilsService } from 'src/app/services/utils.service';

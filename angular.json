@@ -5,6 +5,14 @@
   "projects": {
     "incomeExpenseApp": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": {
+            "translation": "src/locale/messages.es.xlf"
+          }
+        }
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -20,6 +28,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "i18nMissingTranslation": "error",
             "outputPath": "dist/income-expense-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -37,7 +46,13 @@
             "scripts": []
           },
           "configurations": {
+            "es": {
+              "localize": [
+                "es"
+              ]
+            },
             "production": {
+              "localize": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -67,6 +82,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "es": {
+              "buildTarget": "incomeExpenseApp:build:development,es"
+            },
             "production": {
               "buildTarget": "incomeExpenseApp:build:production"
             },
@@ -79,7 +97,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "incomeExpenseApp:build"
+            "buildTarget": "incomeExpenseApp:build",
+            "format": "xlf",
+            "outputPath": "src/locale"
           }
         },
         "test": {
