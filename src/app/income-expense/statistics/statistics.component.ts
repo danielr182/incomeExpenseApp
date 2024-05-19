@@ -22,7 +22,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   incomeTotal: number = 0;
   expenseTotal: number = 0;
 
-  doughnutChartLabels: string[] = ['Ingresos', 'Egresos'];
+  doughnutChartLabels: string[] = ['Income', 'Expenses'];
   doughnutChartData: ChartData<'doughnut'> = {
     labels: this.doughnutChartLabels,
     datasets: [{ data: [] }],
