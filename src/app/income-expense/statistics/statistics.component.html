@@ -11,8 +11,8 @@
     </div>
   </div>
 </ng-template>
-<div class="row" *ngIf="!isLoading; else loading">
-  <div class="col-6">
+<div class="row first-section" *ngIf="!isLoading; else loading">
+  <div class="col-12 col-lg-6">
     <div class="card card-statistics">
       <div class="card-body">
         <div class="clearfix">
@@ -38,7 +38,7 @@
     </div>
   </div>
 
-  <div class="col-6">
+  <div class="col-12 col-lg-6">
     <div class="card card-statistics">
       <div class="card-body">
         <div class="clearfix">
@@ -65,7 +65,7 @@
   </div>
 </div>
 
-<div class="row m-5">
+<div class="row mt-5 mx-1 mx-lg-5">
   <div class="col-12">
     <div class="card card-statistics">
       <div class="card-body">
@@ -89,7 +89,7 @@
     </div>
   </div>
 
-  <div class="col-12 p-5" *ngIf="incomeTotal > 0 || expenseTotal > 0">
+  <div class="col-12 pt-5 px-1 px-lg-5" *ngIf="incomeTotal > 0 || expenseTotal > 0">
     <div class="card card-statistics-chart">
       <div class="card-body">
         <h1 class="card-title" i18n="@@dashboard-graph">Graph</h1>

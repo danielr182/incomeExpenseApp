@@ -12,3 +12,12 @@
     }
   }
 }
+
+@media (max-width: 991px) {
+  .first-section {
+    gap: 24px;
+  }
+  .card-statistics-chart .card-body .chart-container .chart-block {
+   max-width: 180px;
+  }
+}
