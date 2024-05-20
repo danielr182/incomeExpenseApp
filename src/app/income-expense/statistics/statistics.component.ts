@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { ChartData } from 'chart.js';
@@ -9,6 +9,7 @@ import { incomeExpenseSelectors } from 'src/app/store/income-expense/income-expe
 import { uiSelectors } from 'src/app/store/ui/ui.selector';
 import * as uiActions from 'src/app/store/ui/ui.actions';
 import { authSelectors } from 'src/app/store/auth/auth.selector';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-statistics',
@@ -22,7 +23,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   incomeTotal: number = 0;
   expenseTotal: number = 0;
 
-  doughnutChartLabels: string[] = ['Income', 'Expenses'];
+  doughnutChartLabels: string[] = [$localize`:@@graph-income:Income`, $localize`:@@graph-expenses:Expenses`];
   doughnutChartData: ChartData<'doughnut'> = {
     labels: this.doughnutChartLabels,
     datasets: [{ data: [] }],
@@ -31,7 +32,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   private subs$ = new Subscription();
   private userLoaded: boolean = false;
 
-  constructor(private store$: Store) {}
+  constructor(private store$: Store, @Inject(LOCALE_ID) private locale: string) {}
 
   ngOnInit(): void {
     this.store$.dispatch(uiActions.isLoading());
@@ -87,5 +88,9 @@ export class StatisticsComponent implements OnInit, OnDestroy {
 
   getClassName(): string {
     return this.incomeTotal - this.expenseTotal >= 0 ? 'text-success' : 'text-danger';
+  }
+
+  getCurrencyCode(): string {
+    return UtilsService.getLocaleCurrencyCode(this.locale);
   }
 }

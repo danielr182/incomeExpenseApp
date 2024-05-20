@@ -14,7 +14,7 @@
             <ng-template #loading>
               <div class="text-wrapper justify-content-center align-items-center">
                 <div class="spinner-border spinner-border-sm text-primary" role="status">
-                  <span class="visually-hidden">Loading...</span>
+                  <span class="visually-hidden" i18n="@@sidebar-loading">Loading...</span>
                 </div>
               </div>
             </ng-template>
@@ -26,28 +26,28 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/">
           <i class="menu-icon fa fa-tachometer-alt"></i>
-          <span class="menu-title">Dashboard</span>
+          <span class="menu-title" i18n="@@sidebar-dashboard">Dashboard</span>
         </a>
       </li>
   
       <li class="nav-item">
         <a class="nav-link" routerLink="/income-expense">
           <i class="menu-icon fa fa-clipboard-list"></i>
-          <span class="menu-title">Income and Expenses</span>
+          <span class="menu-title" i18n="@@sidebar-add-info">Income and Expenses</span>
         </a>
       </li>
   
       <li class="nav-item">
         <a class="nav-link" routerLink="/detail">
           <i class="menu-icon fa fa-table"></i>
-          <span class="menu-title">Detail</span>
+          <span class="menu-title" i18n="@@sidebar-detail">Detail</span>
         </a>
       </li>
   
       <li class="nav-item">
         <a class="nav-link cursor" (click)="logout()">
           <i class="menu-icon fa fa-sign-out-alt"></i>
-          <span class="menu-title">Sign out</span>
+          <span class="menu-title" i18n="@@sidebar-sign-out">Sign out</span>
         </a>
       </li>
       

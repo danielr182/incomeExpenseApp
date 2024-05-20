@@ -8,8 +8,8 @@
       "i18n": {
         "sourceLocale": "en-US",
         "locales": {
-          "es": {
-            "translation": "src/locale/messages.es.xlf"
+          "es-CO": {
+            "translation": "src/locale/messages.es-co.xlf"
           }
         }
       },
@@ -46,9 +46,9 @@
             "scripts": []
           },
           "configurations": {
-            "es": {
+            "es-co": {
               "localize": [
-                "es"
+                "es-CO"
               ]
             },
             "production": {
@@ -82,8 +82,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "es": {
-              "buildTarget": "incomeExpenseApp:build:development,es"
+            "es-co": {
+              "buildTarget": "incomeExpenseApp:build:development,es-co"
             },
             "production": {
               "buildTarget": "incomeExpenseApp:build:production"

@@ -3,6 +3,7 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
 import { incomeExpenseConst } from '../constants/incomeExpense.constant';
 
 import { firebaseError } from '../constants/firebaseError.constant';
+import { getLocaleCurrencyCode } from '@angular/common';
 
 export abstract class UtilsService {
   constructor() {}
@@ -16,6 +17,10 @@ export abstract class UtilsService {
 
   static isControlValid(form: UntypedFormGroup, controlName: string): boolean {
     return form.get(controlName)?.valid ?? false;
+  }
+
+  static getLocaleCurrencyCode(locale: string): string {
+    return getLocaleCurrencyCode(locale) ?? '';
   }
 
   static getErrorByCode(errorCode: string): string {

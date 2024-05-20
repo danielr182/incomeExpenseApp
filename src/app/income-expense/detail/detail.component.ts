@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, LOCALE_ID, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 
@@ -17,7 +17,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   incomeExpenseList: IncomeExpense[] = [];
   private subs$ = new Subscription();
 
-  constructor(private store$: Store) {}
+  constructor(private store$: Store, @Inject(LOCALE_ID) private locale: string) {}
 
   ngOnInit(): void {
     this.subs$.add(
@@ -37,6 +37,10 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   getClassName(typeCode: string): string {
     return typeCode === IncomeExpenseType.income ? 'text-success' : 'text-danger';
+  }
+
+  getCurrencyCode(): string {
+    return UtilsService.getLocaleCurrencyCode(this.locale);
   }
 
   getTypeByCode(typeCode: string): string {

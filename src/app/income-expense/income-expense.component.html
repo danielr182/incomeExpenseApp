@@ -2,46 +2,46 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Add an Income or Expense</h4>
-        <p class="card-description">
+        <h4 class="card-title" i18n="@@add-title">Add an Income or Expense</h4>
+        <p class="card-description" i18n="@@add-subtitle">
           Specify type, description and amount
         </p>
 
         <form class="mt-4" [formGroup]="incomeExpenseForm" (ngSubmit)="addIncomeExpense()">
           <div class="form-group">
-            <label>Type</label>
+            <label i18n="@@add-type">Type</label>
             <br>
             <input type="radio" class="btn-check" formControlName="type" [value]="incomeExpenseType.income"
               id="incomeExpenseType-income" name="type" autocomplete="off">
-            <label class="btn btn-outline-primary btn-lg mr-2" for="incomeExpenseType-income">Income</label>
+            <label class="btn btn-outline-primary btn-lg mr-2" for="incomeExpenseType-income" i18n="@@add-income">Income</label>
             <input type="radio" class="btn-check" formControlName="type" [value]="incomeExpenseType.expense"
               id="incomeExpenseType-expense" name="type" autocomplete="off">
-            <label class="btn btn-outline-danger btn-lg" for="incomeExpenseType-expense">Expense</label>
+            <label class="btn btn-outline-danger btn-lg" for="incomeExpenseType-expense" i18n="@@add-expense">Expense</label>
           </div>
 
           <div class="form-group">
-            <label>Description</label>
-            <input type="text" class="form-control" formControlName="description" placeholder="Description">
+            <label i18n="@@add-description">Description</label>
+            <input type="text" class="form-control" formControlName="description" placeholder="Description" i18n-placeholder="@@add-description-ph">
           </div>
 
           <div class="form-group mb-5">
-            <label>Monto</label>
-            <input type="text" class="form-control" formControlName="amount" placeholder="Amount">
-            <p>
+            <label i18n="@@add-amount">Amount</label>
+            <input type="text" class="form-control" formControlName="amount" placeholder="Amount" i18n-placeholder="@@add-amount-ph">
+            <p i18n="@@add-amount-help">
               It should be a positive amount
             </p>
           </div>
 
           <hr>
-          <button type="submit" class="btn btn-success mr-2" *ngIf="!isLoading; else loading"
+          <button type="submit" class="btn btn-success mr-2" i18n="@@add-add-button" *ngIf="!isLoading; else loading"
             [disabled]="incomeExpenseForm.invalid">
             Add
           </button>
           <ng-template #loading>
-            <button disabled type="button" class="btn btn-success mr-2"><i
+            <button disabled type="button" class="btn btn-success mr-2" i18n="@@add-loading"><i
                 class="fa fa-spinner fa-spin"></i>Loading</button>
           </ng-template>
-          <button type="reset" class="btn btn-light" routerLink="['/']">Cancel</button>
+          <button type="reset" class="btn btn-light" routerLink="['/']" i18n="@@add-cancel">Cancel</button>
 
         </form>
       </div>
