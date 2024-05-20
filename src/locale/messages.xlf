@@ -20,36 +20,49 @@
         <source>Password</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">25</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login-signin" datatype="html">
-        <source>Sign in</source>
+        <source> Sign in </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">31</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login-english" datatype="html">
+        <source>English</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="login-spanish" datatype="html">
+        <source>Spanish</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
+          <context context-type="linenumber">58</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login-loading" datatype="html">
-        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
-                    class=&quot;fa fa-spinner fa-spin&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Loading</source>
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i class=&quot;fa fa-spinner fa-spin&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Loading </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">33,34</context>
+          <context context-type="linenumber">66,67</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login-registered-question" datatype="html">
         <source>Are you not registered?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">72</context>
         </context-group>
       </trans-unit>
       <trans-unit id="login-create-account" datatype="html">
         <source>Create account</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">74</context>
         </context-group>
       </trans-unit>
       <trans-unit id="msg-auth-email-already-exists" datatype="html">
@@ -281,18 +294,18 @@
         <source>Income</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/income-expense/statistics/statistics.component.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="graph-expenses" datatype="html">
         <source>Expenses</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/income-expense/statistics/statistics.component.ts</context>
-          <context context-type="linenumber">25</context>
+          <context context-type="linenumber">26</context>
         </context-group>
       </trans-unit>
       <trans-unit id="footer" datatype="html">
-        <source>Copyright © 2024 <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;http://linkedin.com/in/danielr182&quot; target=&quot;_blank&quot;&gt;"/>Daniel Rodríguez<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>.</source>
+        <source>2024 | Made by <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;http://linkedin.com/in/danielr182&quot; target=&quot;_blank&quot;&gt;"/>Daniel Rodríguez<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/footer/footer.component.html</context>
           <context context-type="linenumber">3,4</context>
