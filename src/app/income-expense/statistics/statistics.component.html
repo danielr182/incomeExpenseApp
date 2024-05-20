@@ -1,95 +1,105 @@
 <ng-template #loading>
-    <div class="d-flex justify-content-center align-items-center h-100 text-primary">
-        <div class="d-flex" style="width: 3rem; height: 3rem;">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
+  <div
+    class="d-flex justify-content-center align-items-center h-100 text-primary"
+  >
+    <div class="d-flex" style="width: 3rem; height: 3rem">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden" i18n="@@dashboard-loading"
+          >Loading...</span
+        >
+      </div>
     </div>
+  </div>
 </ng-template>
 <div class="row" *ngIf="!isLoading; else loading">
-    <div class="col-6">
-        <div class="card card-statistics">
-            <div class="card-body">
-
-                <div class="clearfix">
-                    <div class="float-left">
-                        <i class="fa fa-money-bill-alt text-success icon-lg"></i>
-                    </div>
-                    <div class="float-right">
-                        <p class="mb-0 text-right">Income</p>
-                        <div class="fluid-container">
-                            <h3 class="font-weight-medium text-right mb-0">{{ incomeTotal | currency }}</h3>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ incomeCount }} Items
-                </p>
+  <div class="col-6">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="fa fa-money-bill-alt text-success icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right" i18n="@@dashboard-income">Income</p>
+            <div class="fluid-container">
+              <h3 class="font-weight-medium text-right mb-0">
+                {{ incomeTotal | currency : getCurrencyCode() }}
+              </h3>
             </div>
+          </div>
         </div>
+        <p class="text-muted mt-3 mb-0">
+          <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i>
+          <ng-container i18n="@@dashboard-income-item"
+            >{incomeCount, plural, =0 {no items} =1 {1 item} other {{{incomeCount}} items}}</ng-container
+          >
+        </p>
+      </div>
     </div>
+  </div>
 
-    <div class="col-6">
-        <div class="card card-statistics">
-            <div class="card-body">
-
-                <div class="clearfix">
-                    <div class="float-left">
-                        <i class="fa fa-shipping-fast text-danger icon-lg"></i>
-                    </div>
-                    <div class="float-right">
-                        <p class="mb-0 text-right">Expenses</p>
-                        <div class="fluid-container">
-                            <h3 class="font-weight-medium text-right mb-0">{{ expenseTotal | currency }}</h3>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-muted mt-3 mb-0">
-                    <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> {{ expenseCount }} Items
-                </p>
+  <div class="col-6">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="fa fa-shipping-fast text-danger icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right" i18n="@@dashboard-expenses">Expenses</p>
+            <div class="fluid-container">
+              <h3 class="font-weight-medium text-right mb-0">
+                {{ expenseTotal | currency : getCurrencyCode() }}
+              </h3>
             </div>
+          </div>
         </div>
+        <p class="text-muted mt-3 mb-0">
+          <i class="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i>
+          <ng-container i18n="@@dashboard-expenses-item"
+            >{expenseCount, plural, =0 {no items} =1 {1 item} other {{{expenseCount}} items}}</ng-container
+          >
+        </p>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="row m-5">
-
-    <div class="col-12">
-        <div class="card card-statistics">
-            <div class="card-body">
-
-                <div class="clearfix">
-                    <div class="float-left">
-                        <i class="fa fa-building text-info icon-lg"></i>
-                    </div>
-                    <div class="float-right">
-                        <p class="mb-0 text-right">Gap</p>
-                        <div class="fluid-container">
-                            <h3 [class]="getClassName()" class="font-weight-medium text-right mb-0">
-                                {{ incomeTotal - expenseTotal | currency }}
-                            </h3>
-                        </div>
-                    </div>
-                </div>
-
-
+  <div class="col-12">
+    <div class="card card-statistics">
+      <div class="card-body">
+        <div class="clearfix">
+          <div class="float-left">
+            <i class="fa fa-building text-info icon-lg"></i>
+          </div>
+          <div class="float-right">
+            <p class="mb-0 text-right" i18n="@@dashboard-gap">Gap</p>
+            <div class="fluid-container">
+              <h3
+                [class]="getClassName()"
+                class="font-weight-medium text-right mb-0"
+              >
+                {{ incomeTotal - expenseTotal | currency: getCurrencyCode() }}
+              </h3>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="col-12 p-5" *ngIf="incomeTotal > 0 || expenseTotal > 0">
-        <div class="card card-statistics-chart">
-            <div class="card-body">
-                <h1 class="card-title">Graph</h1>
-                <div class="chart-container">
-                    <div class="chart-block">
-                        <canvas baseChart [data]="doughnutChartData" [type]="'doughnut'">
-                        </canvas>
-                    </div>
-                </div>
-            </div>
+  <div class="col-12 p-5" *ngIf="incomeTotal > 0 || expenseTotal > 0">
+    <div class="card card-statistics-chart">
+      <div class="card-body">
+        <h1 class="card-title" i18n="@@dashboard-graph">Graph</h1>
+        <div class="chart-container">
+          <div class="chart-block">
+            <canvas baseChart [data]="doughnutChartData" [type]="'doughnut'">
+            </canvas>
+          </div>
         </div>
+      </div>
     </div>
-
+  </div>
 </div>
