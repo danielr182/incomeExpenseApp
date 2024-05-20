@@ -2,7 +2,7 @@ import { IncomeExpenseType } from '../enums/incomeExpenseType.enum';
 
 export const incomeExpenseConst: { type: { [key: string]: string } } = {
   type: {
-    [IncomeExpenseType.income]: 'Ingreso',
-    [IncomeExpenseType.expense]: 'Egreso',
+    [IncomeExpenseType.income]: $localize`:@@income-type:Income`,
+    [IncomeExpenseType.expense]: $localize`:@@expense-type:Expense`,
   },
 };

@@ -12643,6 +12643,25 @@ input:focus {
         .sidebar .nav.sub-menu .nav-item:hover > .nav-link:before {
           background: #000; }
 
+@media (max-width: 991px) {
+  .sidebar {
+    width: 75px;
+  }
+  .sidebar .nav .nav-item .nav-link {
+    padding: 16px 0px; }
+    .sidebar .nav .nav-item.nav-profile .nav-link .user-wrapper, .sidebar .nav .nav-item .nav-link {
+      justify-content: center;
+    }
+  .sidebar .nav .nav-item.nav-profile .nav-link .user-wrapper .text-wrapper {
+    display: none; }
+  .sidebar .nav .nav-item .nav-link .menu-title {
+    display: none;
+  }
+  .sidebar .nav .nav-item .nav-link .menu-icon {
+    margin: 0;
+  }
+}
+
 .sidebar-dark .sidebar {
   background: #161a27; }
   .sidebar-dark .sidebar .nav .nav-item .collapse.show,

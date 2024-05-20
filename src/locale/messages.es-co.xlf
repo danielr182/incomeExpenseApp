@@ -27,7 +27,7 @@
         </context-group>
       </trans-unit>
       <trans-unit id="login-signin" datatype="html">
-        <source>Sign in</source>
+        <source> Sign in </source>
         <target>Iniciar sesión</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
@@ -52,9 +52,9 @@
       </trans-unit>
       <trans-unit id="login-loading" datatype="html">
         <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
-                    class=&quot;fa fa-spinner fa-spin&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Loading</source>
+                    class=&quot;fa fa-spinner fa-spin&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Loading </source>
         <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i
-                    class=&quot;fa fa-spinner fa-spin&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Cargando</target>
+                    class=&quot;fa fa-spinner fa-spin&quot;&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>Cargando </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/auth/login/login.component.html</context>
           <context context-type="linenumber">66,67</context>
@@ -140,6 +140,22 @@
           <context context-type="linenumber">9</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="income-type" datatype="html">
+        <source>Income</source>
+        <target>Ingreso</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/constants/incomeExpense.constant.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="expense-type" datatype="html">
+        <source>Expense</source>
+        <target>Egreso</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/constants/incomeExpense.constant.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="detail-title" datatype="html">
         <source>Detail of income and expenses</source>
         <target>Detalle de ingresos y gastos</target>
@@ -153,7 +169,7 @@
         <target>Descripción</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/income-expense/detail/detail.component.html</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="detail-amount" datatype="html">
@@ -161,7 +177,7 @@
         <target>Cantidad</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/income-expense/detail/detail.component.html</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="linenumber">12</context>
         </context-group>
       </trans-unit>
       <trans-unit id="detail-type" datatype="html">
@@ -169,7 +185,7 @@
         <target>Tipo</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/income-expense/detail/detail.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">13</context>
         </context-group>
       </trans-unit>
       <trans-unit id="add-title" datatype="html">
